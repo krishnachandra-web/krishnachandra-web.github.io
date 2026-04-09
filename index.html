@@ -3,58 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>জয় শ্রী রাধে কৃষ্ণ</title>
+    <title>Krishna - Sign In</title>
     <style>
         body {
             margin: 0; padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(to right, #ff9a9e, #fecfef);
             font-family: Arial; min-height: 100vh;
             display: flex; justify-content: center; align-items: center;
         }
-        .login-box {
-            background: rgba(255,255,255,0.95);
+        .container {
+            text-align: center; background: white;
             padding: 40px; border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-            text-align: center; width: 350px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 380px;
         }
         h1 { 
-            color: #8e44ad; font-size: 32px; 
-            margin-bottom: 10px; text-shadow: 2px 2px 4px #ddd;
+            color: #8e44ad; font-size: 48px; 
+            margin: 0 0 20px 0; text-shadow: 2px 2px 4px #ddd;
         }
-        img { 
-            width: 120px; height: 120px; border-radius: 50%; 
-            border: 4px solid #8e44ad; margin: 15px 0;
-            object-fit: cover;
+        .main-img { 
+            width: 280px; max-width: 90%; 
+            border-radius: 15px; border: 4px solid #8e44ad; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            margin: 15px 0; 
+        }
+        .login-form {
+            margin-top: 25px;
         }
         input {
-            width: 100%; padding: 12px; margin: 10px 0;
-            border: 2px solid #ddd; border-radius: 25px;
+            width: 100%; padding: 14px; margin: 8px 0;
+            border: 2px solid #8e44ad; border-radius: 30px;
             font-size: 16px; box-sizing: border-box;
-            text-align: center;
+            text-align: center; outline: none;
         }
         button {
-            width: 100%; padding: 12px; margin-top: 15px;
-            background: linear-gradient(to right, #8e44ad, #9b59b6);
-            color: white; border: none; border-radius: 25px;
+            width: 100%; padding: 14px; margin-top: 15px;
+            background: #8e44ad; color: white; 
+            border: none; border-radius: 30px;
             font-size: 18px; font-weight: bold; cursor: pointer;
         }
-        button:hover { opacity: 0.9; }
+        button:hover { background: #732d91; }
         .mantra { 
-            color: #8e44ad; font-size: 14px; 
+            color: #8e44ad; font-size: 16px; 
             margin-top: 20px; font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="login-box">
-        <h1>🙏 রাধে কৃষ্ণ 🙏</h1>
-        <img src="radhakrishna.jpg" alt="Radha Krishna">
+    <div class="container">
+        <h1>Krishna</h1>
         
-        <input type="text" placeholder="Username লিখুন" value="Krishna">
-        <input type="password" placeholder="Password লিখুন" value="radhe123">
-        <button onclick="alert('জয় শ্রী রাধে কৃষ্ণ! 🙏')">Sign In</button>
+        <img src="radhakrishna.jpg" alt="Radha Krishna" class="main-img">
         
-        <div class="mantra">হরে কৃষ্ণ হরে কৃষ্ণ, কৃষ্ণ কৃষ্ণ হরে হরে</div>
+        <div class="login-form">
+            <input type="text" placeholder="User ID" value="krishna_bhakta">
+            <input type="password" placeholder="Password" value="radhe123">
+            <button onclick="alert('🙏 জয় শ্রী রাধে কৃষ্ণ 🙏\n\nস্বাগতম ভক্ত!')">Sign In</button>
+        </div>
+        
+        <div class="mantra">হরে কৃষ্ণ হরে রাম</div>
     </div>
 </body>
 </html>
