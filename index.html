@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna - Google</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        
+        /* 👇 পুরো Background নীল + গোলাপি Gradient */
+        body { 
+            /* সাদা বাদ দিয়ে নীল-গোলাপি করে দিলাম */
+            background: linear-gradient(135deg, #1a73e8 0%, #87CEEB 40%, #ff69b4 100%);
+            color: #202124; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            /* বর্ডারটাও নীল-গোলাপি রাখলাম */
+            border: 12px solid;
+            border-image: linear-gradient(45deg, #1a73e8, #ff69b4, #1a73e8) 1;
+            box-sizing: border-box;
+        }
+        
+        .navbar { 
+            display: flex; 
+            justify-content: flex-end; 
+            padding: 15px 30px; 
+            gap: 20px; 
+            font-size: 13px; 
+            align-items: center;
+        }
+        .navbar a { color: white; text-decoration: none; font-weight: 500; }
+        .navbar a:hover { text-decoration: underline; }
+        .profile-pic {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid white;
+        }
+        .main { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            margin-top: -40px; 
+        }
+        .logo-area {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .god-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 4px solid gold;
+            object-fit: cover;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        }
+        .logo { 
+            font-size: 70px; 
+            font-weight: 400; 
+            letter-spacing: -3px; 
+            margin: 5px 0 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .logo span:nth-child(1) { color: #fff; }
+        .logo span:nth-child(2) { color: #ffeb3b; }
+        .logo span:nth-child(3) { color: #fff; }
+        .logo span:nth-child(4) { color: #ffeb3b; }
+        .logo span:nth-child(5) { color: #fff; }
+        .logo span:nth-child(6) { color: #ffeb3b; }
+        .logo span:nth-child(7) { color: #fff; }
+        
+        /* Login বক্স সাদা রাখলাম যাতে পরিষ্কার দেখা যায় */
+        .login-box {
+            width: 350px;
+            max-width: 90%;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .login-box h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1a73e8;
+            font-weight: 400;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            color: #5f6368;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            font-size: 16px;
+            outline: none;
+        }
+        .input-group input:focus {
+            border: 2px solid #1a73e8;
+        }
+        .login-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #1a73e8, #ff69b4);
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .login-btn:hover { opacity: 0.9; }
+        
+        .search-box { 
+            width: 580px; 
+            max-width: 90%; 
+            background: rgba(255,255,255,0.95);
+            border: 2px solid white; 
+            border-radius: 24px; 
+            padding: 12px 20px; 
+            display: flex; 
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            margin-top: 10px;
+        }
+        .search-box:hover { 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .search-box input { 
+            flex: 1; 
+            background: transparent; 
+            border: none; 
+            outline: none; 
+            color: #202124; 
+            font-size: 16px; 
+            margin: 0 15px; 
+        }
+        .buttons { margin-top: 25px; display: flex; gap: 12px; }
+        .btn { 
+            background: rgba(255,255,255,0.9);
+            border: 1px solid white; 
+            color: #1a73e8; 
+            padding: 10px 20px; 
+            border-radius: 4px; 
+            font-size: 14px; 
+            cursor: pointer; 
+            font-weight: 500;
+        }
+        .btn:hover { background: white; }
+        
+        .footer { 
+            background: rgba(0,0,0,0.2);
+            padding: 15px 30px; 
+            font-size: 14px; 
+            color: white; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            font-weight: 500;
+        }
+        .footer-photos {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .brother-photo {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 3px solid white;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="https://mail.google.com">Gmail</a>
+        <a href="https://images.google.com">Images</a>
+        <img src="brother.jpg" alt="Profile" class="profile-pic">
+    </div>
+
+    <div class="main">
+        <div class="logo-area">
+            <img src="radha_krishna.jpg" alt="Radha Krishna" class="god-photo">
+            
+            <div class="logo">
+                <span>K</span><span>r</span><span>i</span><span>s</span><span>h</span><span>n</span><span>a</span>
+            </div>
+        </div>
+
+        <div class="login-box">
+            <h3>Sign in</h3>
+            <div class="input-group">
+                <label>User ID / Email</label>
+                <input type="text" placeholder="Enter your email" id="userId">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="Enter password" id="password">
+            </div>
+            <button class="login-btn" onclick="loginCheck()">Next</button>
+        </div>
+
+        <div class="search-box">
+            <span>🔍</span>
+            <input type="text" placeholder="Search Google or type a URL" id="searchInput">
+            <span>🎤</span>
+        </div>
+
+        <div class="buttons">
+            <button class="btn" onclick="googleSearch()">Google Search</button>
+            <button class="btn" onclick="feelingLucky()">I'm Feeling Lucky</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-photos">
+            <img src="brother.jpg" alt="Brother" class="brother-photo">
+            <span>Made by Krishna & Brother ❤️</span>
+        </div>
+        <div>Jai Shree Krishna 🙏</div>
+    </div>
+
+    <script>
+        function googleSearch() {
+            let query = document.getElementById('searchInput').value;
+            if(query) {
+                window.open('https://www.google.com/search?q=' + encodeURIComponent(query));
+            }
+        }
+        
+        function feelingLucky() {
+            let query = document.getElementById('searchInput').value;
+            if(query) {
+                window.open('https://www.google.com/search?btnI=1&q=' + encodeURIComponent(query));
+            }
+        }
+
+        function loginCheck() {
+            let user = document.getElementById('userId').value;
+            let pass = document.getElementById('password').value;
+            if(user && pass) {
+                alert('Welcome ' + user + ' 🙏 Jai Shree Krishna!');
+            } else {
+                alert('Please enter User ID and Password');
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') googleSearch();
+        });
+    </script>
+</body>
+</html>
